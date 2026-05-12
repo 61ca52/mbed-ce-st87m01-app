@@ -1,0 +1,116 @@
+{
+    "config": {
+        "trace-level": {
+            "help": "Options are TRACE_LEVEL_ERROR,TRACE_LEVEL_WARN,TRACE_LEVEL_INFO,TRACE_LEVEL_DEBUG",
+            "macro_name": "MBED_TRACE_MAX_LEVEL",
+            "value": "TRACE_LEVEL_DEBUG"
+        }
+    },
+    "macros": [
+        "MBED_TRACE_MAX_LEVEL=TRACE_LEVEL_DEBUG",
+        "MBEDTLS_SSL_CLI_C",
+        "MBEDTLS_SSL_PROTO_DTLS",
+        "MBEDTLS_X509_CRT_PARSE_C",
+        "MBEDTLS_SSL_MAX_CONTENT_LEN=4096",
+        "MBEDTLS_SSL_IN_CONTENT_LEN=4096",
+        "MBEDTLS_SSL_OUT_CONTENT_LEN=4096",
+        "MBEDTLS_AES_ROM_TABLES",
+        "MBEDTLS_MPI_MAX_SIZE=512",
+        "MBEDTLS_MPI_WINDOW_SIZE=1"
+    ],
+    "target_overrides": {
+        "*": {
+            "mbed-trace.enable": true,
+            "rtos.main-thread-stack-size": 8192,
+            "platform.stdio-baud-rate": 115200,
+            "platform.stdio-buffered-serial": 4,
+            "platform.stdio-convert-newlines": true,
+            "platform.default-serial-baud-rate": 115200,
+            "target.network-default-interface-type": "CELLULAR",
+            "lwip.ipv4-enabled": true,
+            "lwip.ipv6-enabled": true,
+            "lwip.ethernet-enabled": false,
+            "lwip.tcp-enabled": true,
+            "lwip.ppp-enabled": false,
+            "ppp.ipv4-enabled": false,
+            "ppp.ipv6-enabled": false,
+            "cellular.debug-at": true,
+            "cellular.use-apn-lookup": true,
+            "cellular.random_max_start_delay": "0",
+            "cellular.at-handler-buffer-size": 256,
+            "nsapi.default-cellular-sim-pin": null,
+            "nsapi.default-cellular-plmn": "\"26201\"",
+            "nsapi.default-cellular-apn": "\"iot.1nce.net\"",
+            "nsapi.default-cellular-username": null,
+            "nsapi.default-cellular-password": null,
+            "nsapi.offload-tlssocket": false,
+            "st87m01.provide-default": true,
+            "st87m01.configure": true,
+            "st87m01.bands": "\"8\"",
+            "st87m01.default-pdp-type": "\"IP\"",
+            "st87m01.tls-support-pem": true,
+            "target.components_add": [
+                "st87m01"
+            ],
+            "mbedtls.ssl-max-fragment-length": true,
+
+            // =================================================================
+            // cellular-test library configuration
+            // =================================================================
+            // Test procedure: 0=UDP, 1=TCP, 2=TLS, 3=fwTLS, 4=DTLS, 5=fwDTLS, 6=HTTP, 7=HTTPS
+            // Only the selected procedure code is compiled (minimizes flash usage)
+            "cellular-test.test-procedure": 6,
+
+            // UDP echo server configuration
+            "cellular-test.udp-echo-server-hostname": "\"echo.example.com\"",
+            "cellular-test.udp-echo-server-ip": "\"0.0.0.0\"",
+            "cellular-test.udp-echo-server-port": 5001,
+
+            // TCP echo server configuration
+            "cellular-test.tcp-echo-server-hostname": "\"echo.example.com\"",
+            "cellular-test.tcp-echo-server-ip": "\"0.0.0.0\"",
+            "cellular-test.tcp-echo-server-port": 5002,
+
+            // TLS/DTLS echo server configuration  
+            "cellular-test.cert-verify-mode": 2,
+            "cellular-test.tls-echo-server-hostname": "\"echo.example.com\"",
+            "cellular-test.tls-echo-server-ip": "\"0.0.0.0\"",
+            "cellular-test.tls-echo-server-port": 5003,
+            "cellular-test.dtls-echo-server-port": 5004,
+
+            // HTTP server configuration
+            "cellular-test.http-server-hostname": "\"echo.example.com\"",
+            "cellular-test.http-server-ip": "\"0.0.0.0\"",
+            "cellular-test.http-server-port": 80,
+            "cellular-test.https-server-port": 443,
+            "cellular-test.http-path": "\"/get\"",
+
+            // Common test parameters
+            "cellular-test.use-direct-ip": true,
+            "cellular-test.ping-pong-cycles": 5,
+            "cellular-test.test-payload": "\"HELLO_NBIOT\"",
+            "cellular-test.tls-security-profile": 0,
+            "cellular-test.socket-timeout-ms": 30000,
+            "cellular-test.tls-handshake-timeout-ms": 120000,
+            "cellular-test.connect-retry-count": 3
+        },
+        "NUCLEO_L4A6ZG": {
+            "target.lse_available": 1,
+            "target.clock_source": "USE_PLL_HSI",
+            "target.rtc_clock_source": "USE_RTC_CLK_LSE_OR_LSI",
+            "target.lpticker_lptim": 1,
+            "target.lpticker_lptim_clock": 8,
+            "target.tickless-from-us-ticker": false,
+            "target.i2c_timing_value_algo": false
+        },
+        "NUCLEO_L496ZG": {
+            "target.lse_available": 1,
+            "target.clock_source": "USE_PLL_HSI",
+            "target.rtc_clock_source": "USE_RTC_CLK_LSE_OR_LSI",
+            "target.lpticker_lptim": 1,
+            "target.lpticker_lptim_clock": 8,
+            "target.tickless-from-us-ticker": false,
+            "target.i2c_timing_value_algo": false
+        }
+    }
+}
