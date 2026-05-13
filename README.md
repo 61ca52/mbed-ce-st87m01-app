@@ -79,5 +79,9 @@ the full parameter list.
 ├── mbed_app.json5           // per-target / per-operator config
 ├── cellular_test/           // protocol echo-test library
 ├── st87m01/                 // ST ST87M01-1 NB-IoT modem driver
-└── mbed-os/                 // Mbed OS sources (read-only)
+└── mbed-os/                 // Mbed OS sources
 ```
+
+## Related projects
+
+This app is part of a small ecosystem and is designed to work with the [iot-test-service](https://github.com/61ca52/iot-test-service), a Dockerised testbed providing UDP / TCP / TLS / DTLS / HTTP / HTTPS echo and mirror endpoints plus a basic .NET management API.
