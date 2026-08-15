@@ -1,10 +1,10 @@
 [submodule "mbed-os"]
 	path = mbed-os
-	url = git@github.com:61ca52/mbed-os.git
+	url = https://github.com/mbed-ce/mbed-os.git
 	branch = feature/stm32l4a6-support
 [submodule "cellular-test"]
 	path = cellular-test
-	url = git@github.com:61ca52/mbed-ce-cellular-test.git
+	url = https://github.com/61ca52/mbed-ce-cellular-test.git
 [submodule "st87m01"]
 	path = st87m01
-	url = git@github.com:61ca52/mbed-ce-st87m01.git
+	url = https://github.com/61ca52/mbed-ce-st87m01.git
